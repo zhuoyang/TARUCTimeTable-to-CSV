@@ -12,7 +12,6 @@ table = allTable[1].find('tbody').findAll('tr')
 
 semDate = soup.find('div', {'class': 'form-group'}).findAll('label')[1].contents[2].split(" ")[4]
 semDateTime = datetime.datetime.strptime(semDate, "%Y-%m-%d")
-semDateTime += datetime.timedelta(days=1)
 
 dayDict = {
     "Mon": semDateTime,
