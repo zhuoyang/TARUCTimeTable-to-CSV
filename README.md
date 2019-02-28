@@ -2,7 +2,7 @@
 Generate Google Calendar CSV from TARUC Intranet  
 
 ### Dependencies
-* [Python 3](https://www.python.org/downloads/) 
+* [Python 3.7.x](https://www.python.org/downloads/) 
 
 * BeautifulSoup 4  
 ```
