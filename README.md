@@ -18,7 +18,7 @@ Use "Save as..." in your browser to download timetable from TARUC Intranet,
 
 Then excecute
 ```
-python timetable.py [full path timetable html]
+python timetable.py [full path to timetable html]
 ```
 
 ### Precaution
