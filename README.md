@@ -8,6 +8,10 @@ Generate Google Calendar CSV from TARUC Intranet
 ```
 pip install beautifulsoup4
 ```
+* html5lib  
+```
+pip install html5lib
+```
 
 ### Usage
 Use "Save as..." in your browser to download timetable from TARUC Intranet,  
