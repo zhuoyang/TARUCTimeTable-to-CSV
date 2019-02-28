@@ -19,4 +19,4 @@ python timetable.py [timetable html]
 
 ### Precaution
 This script is currently assuming short sem (7 weeks).
-If there's any replacement class on the table it will break the script.
+If there's any replacement class on the table it will most probably break the script.
