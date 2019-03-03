@@ -1,0 +1,24 @@
+{
+  "name": "taructimetable-to-csv",
+  "version": "1.0.0",
+  "description": "Generate Google Calendar CSV from TARUC Intranet",
+  "main": "webserver.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "multer": "^1.4.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zhuoyang/TARUCTimeTable-to-CSV.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zhuoyang/TARUCTimeTable-to-CSV/issues"
+  },
+  "homepage": "https://github.com/zhuoyang/TARUCTimeTable-to-CSV#readme"
+}

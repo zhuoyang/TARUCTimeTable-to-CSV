@@ -1,10 +1,13 @@
 import sys
 import urllib.request
+import pathlib
 import datetime
 import csv
+import os
 from bs4 import BeautifulSoup
 
-page = urllib.request.urlopen("file:///" + sys.argv[1])
+cwd = os.path.dirname(os.path.abspath(__file__))
+page = urllib.request.urlopen("file:///" + cwd + "/" + sys.argv[1])
 soup = BeautifulSoup(page, 'html5lib')
 
 allTable = soup.findAll('table', {'id': 'simple-table'})
@@ -59,7 +62,8 @@ for row in table:
     lesson = Lesson(string[0], string[31] + " " + string[32], string[34] + " " + string[35], venue, lecturer, string[37][:-1])
     subjects[i].lesson.append(lesson)
 
-with open('timetable.csv', 'w', newline='') as csvFile:
+fn = cwd + "/" + (sys.argv[1][:-5] + ".csv")
+with open(fn, 'w', newline='') as csvFile:
     writer = csv.writer(csvFile)
     writer.writerow(['Subject', 'Start Date', 'Start Time', 'End Date', 'End Time', 'Location'])
     for subject in subjects:
@@ -70,3 +74,5 @@ with open('timetable.csv', 'w', newline='') as csvFile:
                 writer.writerow([subjectName + " (" + lesson.type + ")", date.strftime("%m/%d/%Y"),
                                  lesson.starttime, date.strftime("%m/%d/%Y"), lesson.endtime, lesson.venue])
                 date += datetime.timedelta(days=7)
+print(1)
+sys.stdout.flush()
