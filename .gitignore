@@ -183,3 +183,5 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+tmp/

@@ -12,19 +12,28 @@ var storage = multer.diskStorage({
       cb(null, file.fieldname + '-' + Date.now() + ".html")
     }
   })
+
+  function fileFilter (req, file, cb) {
+
+    // The function should call `cb` with a boolean
+    // to indicate if the file should be accepted
+    if (path.extname(file.originalname) !== 'html')
+      cb(null, true)
+    else
+      cb(new Error('Must be html file'))
   
-var upload = multer({ storage: storage })
+  }
+  
+var upload = multer({ storage: storage , limits:{fileSize:100000}, fileFilter: fileFilter})
 var app = express()
 
 
 app.post('/upload', upload.single('timetable'), function (req, res, next) {
-    console.log(req.file.filename)
     var process = spawn('python', ["timetable.py", "\\tmp\\"+req.file.filename])
-    console.log("spawn success")
     process.stdout.on('data', (data) =>{
       if (data.toString() == 1)
       {
-        res.download(path.join(__dirname, 'tmp', req.file.filename.slice(0, -5) + '.csv'), 'timetable.csv');
+        res.download(path.join(__dirname, 'tmp', req.file.filename.slice(0, -5) + '.csv'), 'timetable.csv'); 
       }
     })
 
