@@ -52,13 +52,18 @@ for row in table:
         name = list(child[1].stripped_strings)[2]
         subject = Subject(name)
         subjects.append(subject)
+        if len(list(child[2].stripped_strings)) == 3:
+            continue
         string = list(child[2].stripped_strings)[0].split(" ")
         venue = list(child[3].stripped_strings)[0].split(",")[0]
         lecturer = list(child[4].stripped_strings)[0]
     else:
+        if len(list(child[0].stripped_strings)) == 3:
+            continue
         string = list(child[0].stripped_strings)[0].split(" ")
         venue = list(child[1].stripped_strings)[0].split(",")[0]
         lecturer = list(child[2].stripped_strings)[0]
+    test = list(child[2].stripped_strings)
     lesson = Lesson(string[0], string[31] + " " + string[32], string[34] + " " + string[35], venue, lecturer, string[37][:-1])
     subjects[i].lesson.append(lesson)
 
