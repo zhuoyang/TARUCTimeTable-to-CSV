@@ -1,9 +1,38 @@
 <!DOCTYPE html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<style>
+body{
+    font-family: 'Roboto', sans-serif;
+    text-align: center
+
+}
+footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    width: 100%;
+}
+
+.title{
+    font-size: 32px;
+}
+</style>
+</head>
 <html>
     <body>
+        <div class="title">TARUC Timetable to Google Calendar CSV</div>
+        <br>
         <form method="POST" enctype="multipart/form-data" action="upload">
-            <input type="file" name="timetable">
+            <label for="timetable">Upload your <a href="saveas.jpg" target="_blank">timetable HTML</a> from intranet here: </label><br><br>
+            <input type="file" accept=".html" name="timetable">
             <input type="submit">
-        </form>
+        </form><br>
+        <a href="https://support.google.com/calendar/answer/37118?hl=en" target="_blank">How to import csv to Google Calendar ?</a><br><br><br>
+        <footer><a href="https://github.com/zhuoyang/TARUCTimeTable-to-CSV">GitHub</a> | &copy; 2019 Teo Zhuo Yang </footer>
     </body>
 </html>

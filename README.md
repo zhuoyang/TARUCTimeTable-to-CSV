@@ -14,13 +14,25 @@ pip install html5lib
 ```
 
 ### Usage
-Use "Save as..." in your browser to download timetable from TARUC Intranet,  
+1) Use "Save as..." in your browser to download timetable from TARUC Intranet.  
 
-Then excecute
+2) Execute
 ```
 python timetable.py [full path to timetable html]
 ```
+3) File named "timetable.csv" will be generated in the same folder.
+
+### Web Server Usage
+- Node.js is needed for web server  
+
+- To install dependencies, execute:
+```
+npm install
+```
+- To run the web server, execute: 
+```
+node webserver.js
+```
 
 ### Precaution
-This script is currently assuming short sem (7 weeks).
-If there's any replacement class on the table it will most probably break the script.
+- Alternating class would most probably not working, please create an issue with your timetable so that I can fix it.
