@@ -1,6 +1,6 @@
 import sys
 import urllib.request
-import pathlib
+from pathlib import Path
 import datetime
 import csv
 import os
@@ -13,12 +13,7 @@ from bs4 import BeautifulSoup
 # ptvsd.enable_attach(address=('localhost', 5678), redirect_output=True)
 # ptvsd.wait_for_attach()
 
-if len(sys.argv) == 3:
-    if sys.argv[2] == "node":
-        cwd = os.path.dirname(os.path.abspath(__file__))
-        page = urllib.request.urlopen("file:///" + cwd + "/" + sys.argv[1])
-else:
-    page = urllib.request.urlopen("file:///" + sys.argv[1])
+page = urllib.request.urlopen(Path(sys.argv[1]).absolute().as_uri())
 
 soup = BeautifulSoup(page, 'html5lib')
 allTable = soup.findAll('table', {'id': 'simple-table'})
@@ -82,7 +77,7 @@ for row in table:
     subjects[i].lesson.append(lesson)
 if len(sys.argv) == 3:
     if sys.argv[2] == "node":
-        fn = cwd + "/" + (sys.argv[1][:-5] + ".csv")
+        fn = Path(sys.argv[1][:-5] + ".csv")
 else:
     fn = "timetable.csv"
 with open(fn, 'w', newline='') as csvFile:

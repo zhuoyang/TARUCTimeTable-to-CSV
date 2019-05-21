@@ -29,7 +29,7 @@ var app = express()
 
 
 app.post('/upload', upload.single('timetable'), function (req, res, next) {
-    var process = spawn('python', ["timetable.py", "\\tmp\\"+req.file.filename, "node"])
+    var process = spawn('python', ["timetable.py", "tmp/"+req.file.filename, "node"])
     process.stdout.on('data', (data) =>{
       if (data.toString() == 1)
       {

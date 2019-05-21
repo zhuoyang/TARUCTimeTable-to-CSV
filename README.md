@@ -18,7 +18,7 @@ pip install html5lib
 
 2) Execute
 ```
-python timetable.py [full path to timetable html]
+python timetable.py [path to timetable html]
 ```
 3) File named "timetable.csv" will be generated in the same folder.
 
