@@ -29,10 +29,24 @@ footer{
         <br>
         <form method="POST" enctype="multipart/form-data" action="upload">
             <label for="timetable">Upload your <a href="saveas.jpg" target="_blank">timetable HTML</a> from intranet here: </label><br><br>
-            <input type="file" accept=".html" name="timetable">
+            <input type="file" accept=".html" name="timetable" id="timetable" onchange="checkFileSize()">
             <input type="submit">
         </form><br>
-        <a href="https://support.google.com/calendar/answer/37118?hl=en" target="_blank">How to import csv to Google Calendar ?</a><br><br><br>
+        <a href="https://support.google.com/calendar/answer/37118?hl=en" target="_blank">How to import csv to Google Calendar ?</a><br><br>
+        <div>Tips: Create a new calendar first, then import to the new calendar.<br>
+            Incase there's changes to your timetable, you can delete the calendar and import again.</div>
+        <br><br><br>
         <footer><a href="https://github.com/zhuoyang/TARUCTimeTable-to-CSV">GitHub</a> | &copy; 2019 Teo Zhuo Yang </footer>
     </body>
+    <script>
+    function checkFileSize(){
+        if (typeof FileReader !== "undefined") {
+    var size = document.getElementById('timetable').files[0].size;
+    if (size > 100000){
+        document.getElementById('timetable').value = ""
+        alert("File size too large, are you uploading the correct file?")
+    }
+}
+    }
+    </script>
 </html>

@@ -87,14 +87,14 @@ else:
     fn = "timetable.csv"
 with open(fn, 'w', newline='') as csvFile:
     writer = csv.writer(csvFile)
-    writer.writerow(['Subject', 'Start Date', 'Start Time', 'End Date', 'End Time', 'Location'])
+    writer.writerow(['Subject', 'Start Date', 'Start Time', 'End Date', 'End Time', 'Location', 'Description'])
     for subject in subjects:
         subjectName = subject.name
         for lesson in subject.lesson:
             date = dayDict[lesson.day]
             for x in range(semDuration):
                 writer.writerow([subjectName + " (" + lesson.type + ")", date.strftime("%m/%d/%Y"),
-                                 lesson.starttime, date.strftime("%m/%d/%Y"), lesson.endtime, lesson.venue])
+                                 lesson.starttime, date.strftime("%m/%d/%Y"), lesson.endtime, lesson.venue, lesson.lecturer])
                 date += datetime.timedelta(days=7)
 print(1)
 sys.stdout.flush()

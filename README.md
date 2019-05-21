@@ -23,7 +23,7 @@ python timetable.py [full path to timetable html]
 3) File named "timetable.csv" will be generated in the same folder.
 
 ### Web Server Usage
-- Node.js is needed for web server  
+- [Node.js](https://nodejs.org/en/) is needed for web server  
 
 - To install dependencies, execute:
 ```
@@ -36,3 +36,4 @@ node webserver.js
 
 ### Precaution
 - Alternating class would most probably not working, please create an issue with your timetable so that I can fix it.
+- Replacement class is excluded

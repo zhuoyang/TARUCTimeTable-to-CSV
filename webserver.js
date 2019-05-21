@@ -17,7 +17,7 @@ var storage = multer.diskStorage({
 
     // The function should call `cb` with a boolean
     // to indicate if the file should be accepted
-    if (path.extname(file.originalname) !== 'html')
+    if (path.extname(file.originalname) === '.html')
       cb(null, true)
     else
       cb(new Error('Must be html file'))
