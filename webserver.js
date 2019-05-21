@@ -29,12 +29,19 @@ var app = express()
 
 
 app.post('/upload', upload.single('timetable'), function (req, res, next) {
-    var process = spawn('python', ["timetable.py", "\\tmp\\"+req.file.filename])
+    var process = spawn('python', ["timetable.py", "\\tmp\\"+req.file.filename, "node"])
     process.stdout.on('data', (data) =>{
       if (data.toString() == 1)
       {
         res.download(path.join(__dirname, 'tmp', req.file.filename.slice(0, -5) + '.csv'), 'timetable.csv'); 
+      } else {
+        console.log(data.toString())
       }
+
+    })
+
+    process.stderr.on('data', (err) => {
+      next(err)
     })
 
     
