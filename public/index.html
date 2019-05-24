@@ -27,7 +27,7 @@ footer{
     <body>
         <div class="title">TARUC Timetable to Google Calendar CSV</div>
         <br>
-        <form method="POST" enctype="multipart/form-data" action="upload">
+        <form method="POST" enctype="multipart/form-data" onsubmit="return validateForm()" action="upload">
             <label for="timetable">Upload your <a href="saveas.jpg" target="_blank">timetable HTML</a> from intranet here: </label><br><br>
             <input type="file" accept=".html" name="timetable" id="timetable" onchange="checkFileSize()">
             <input type="submit">
@@ -48,5 +48,12 @@ footer{
     }
 }
     }
+
+    function validateForm() {
+  if (document.getElementById('timetable').value == "") {
+    alert("Please upload your timetable HTML.");
+    return false;
+  }
+}
     </script>
 </html>
