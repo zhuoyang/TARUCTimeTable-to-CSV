@@ -29,6 +29,9 @@ var app = express()
 
 
 app.post('/upload', upload.single('timetable'), function (req, res, next) {
+    let current_datetime = new Date()
+    let formatted_date = current_datetime.getDate() + "/" + (current_datetime.getMonth() + 1) + "/" + current_datetime.getFullYear() + " " + current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds() 
+    console.log(formatted_date + " : Timetable uploaded")
     var process = spawn('python', ["timetable.py", "tmp/"+req.file.filename, "node"])
     process.stdout.on('data', (data) =>{
       if (data.toString() == 1)
