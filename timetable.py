@@ -58,11 +58,13 @@ subjects = []
 for row in table:
     child = row.findAll('td')
     if len(child) == 5:
+        if list(child[2].stripped_strings)[0] == "Course Without Class":
+            continue
         i += 1
         name = list(child[1].stripped_strings)[2]
         subject = Subject(name)
         subjects.append(subject)
-        if len(list(child[2].stripped_strings)) == 3:
+        if len(list(child[2].stripped_strings)) == 3: # ignore replacement class
             continue
         string = list(child[2].stripped_strings)[0].split(" ")
         venue = list(child[3].stripped_strings)[0].split(",")[0]
@@ -71,7 +73,7 @@ for row in table:
         except IndexError:
             lecturer = ""
     else:
-        if len(list(child[0].stripped_strings)) == 3:
+        if len(list(child[0].stripped_strings)) == 3: # ignore replacement class
             continue
         string = list(child[0].stripped_strings)[0].split(" ")
         venue = list(child[1].stripped_strings)[0].split(",")[0]
