@@ -4,10 +4,10 @@ from pathlib import Path
 import datetime
 import csv
 import os
-import ptvsd
 from bs4 import BeautifulSoup
 
 #VS Code debugger
+# import ptvsd
 # print("Waiting for debugger attach")
 # sys.stdout.flush()
 # ptvsd.enable_attach(address=('localhost', 5678), redirect_output=True)
