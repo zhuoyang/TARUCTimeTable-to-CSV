@@ -73,8 +73,8 @@ for row in table:
         except IndexError:
             lecturer = ""
     else:
-        if len(list(child[0].stripped_strings)) == 3: # ignore replacement class
-            continue
+        #if len(list(child[0].stripped_strings)) == 3: # ignore replacement class
+        #    continue
         string = list(child[0].stripped_strings)[0].split(" ")
         venue = list(child[1].stripped_strings)[0].split(",")[0]
         try:
