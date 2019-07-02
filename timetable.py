@@ -64,8 +64,8 @@ for row in table:
         name = list(child[1].stripped_strings)[2]
         subject = Subject(name)
         subjects.append(subject)
-        if len(list(child[2].stripped_strings)) == 3: # ignore replacement class
-            continue
+        #if len(list(child[2].stripped_strings)) == 3: # ignore replacement class
+        #    continue
         string = list(child[2].stripped_strings)[0].split(" ")
         venue = list(child[3].stripped_strings)[0].split(",")[0]
         try:
